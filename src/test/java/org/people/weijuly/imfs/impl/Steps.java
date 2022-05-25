@@ -1,13 +1,11 @@
 package org.people.weijuly.imfs.impl;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.people.weijuly.imfs.spec.FileInfo;
 import org.people.weijuly.imfs.spec.FileSystem;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class Steps {
@@ -46,16 +44,17 @@ public class Steps {
         }
     }
 
-    @When("{string} is created with name {string}")
-    public void create(String type, String name) {
-        if (type.equals(FILE)) {
-            fs.touch(name);
-        } else if (type.equals(DIRECTORY)) {
-            fs.mkdir(name);
-        }
+    @When("touch {string}")
+    public void touch(String file) {
+        fs.touch(file);
     }
     @When("cd to {string}")
     public void cd(String dir) {
         fs.cd(dir);
+    }
+
+    @When("mkdir {string}")
+    public void mkdir(String dir){
+        fs.mkdir(dir);
     }
 }
