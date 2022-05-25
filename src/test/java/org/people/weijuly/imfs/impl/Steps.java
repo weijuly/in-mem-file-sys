@@ -46,12 +46,16 @@ public class Steps {
         }
     }
 
-    @And("{string} is created with name {string}")
-    public void createFile(String type, String name) {
+    @When("{string} is created with name {string}")
+    public void create(String type, String name) {
         if (type.equals(FILE)) {
             fs.touch(name);
         } else if (type.equals(DIRECTORY)) {
             fs.mkdir(name);
         }
+    }
+    @When("cd to {string}")
+    public void cd(String dir) {
+        fs.cd(dir);
     }
 }
