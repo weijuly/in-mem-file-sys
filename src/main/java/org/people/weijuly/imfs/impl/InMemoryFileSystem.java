@@ -1,6 +1,6 @@
 package org.people.weijuly.imfs.impl;
 
-import org.apache.logging.log4j.util.Strings;
+import org.apache.commons.lang3.StringUtils;
 import org.people.weijuly.imfs.spec.FileInfo;
 import org.people.weijuly.imfs.spec.FileSystem;
 
@@ -39,7 +39,7 @@ public class InMemoryFileSystem implements FileSystem {
         } else if (absolute(path)) {
             List<String> tokens = Arrays
                     .stream(path.split("/"))
-                    .filter(Strings::isNotEmpty)
+                    .filter(StringUtils::isNotEmpty)
                     .collect(Collectors.toList());
             DirectoryNode temp = root;
             for (String token: tokens) {
