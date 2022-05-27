@@ -8,7 +8,7 @@ import org.people.weijuly.imfs.spec.FileSystem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class Steps {
+public class ImfsSteps {
 
     FileSystem fs;
 
